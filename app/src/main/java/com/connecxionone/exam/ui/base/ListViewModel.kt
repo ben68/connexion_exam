@@ -17,15 +17,15 @@ abstract class ListViewModel<T: Any>(private val repository: AppRepository): Vie
 
     protected val callback =  object: AppRepository.Callback<T> {
         override fun onResult(items: List<T>) {
-            listData.value =
-                mutableListOf<T>().apply {
-                    listData.value?.let {
-                        addAll(it)
-                    }
-                    addAll(items)
-                }.also {
-                    isEmpty.value = it.count() == 0
+            mutableListOf<T>().apply {
+                listData.value?.let {
+                    addAll(it)
                 }
+                addAll(items)
+            }.also {
+                listData.postValue(it)
+                isEmpty.postValue(it.count() == 0)
+            }
         }
     }
 }
