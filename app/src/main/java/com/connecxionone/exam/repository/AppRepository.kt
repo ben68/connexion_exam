@@ -19,7 +19,7 @@ class AppRepository {
 
     fun getCoinHistoryData(callback: Callback<CoinHistoryListItem>) {
         mutableListOf<CoinHistoryListItem>().apply {
-            for (i in 1..3) {
+            for (i in 1..5) {
                 add(item)
             }
             callback.onResult(this)
