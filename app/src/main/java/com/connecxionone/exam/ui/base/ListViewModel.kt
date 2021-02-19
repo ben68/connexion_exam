@@ -11,10 +11,6 @@ abstract class ListViewModel<T: Any>(private val repository: AppRepository): Vie
     val listData = MutableLiveData<List<T>>()
     val isEmpty = MutableLiveData<Boolean>()
 
-    init {
-        isEmpty.value = true
-    }
-
     protected val callback =  object: AppRepository.Callback<T> {
         override fun onResult(items: List<T>) {
             mutableListOf<T>().apply {

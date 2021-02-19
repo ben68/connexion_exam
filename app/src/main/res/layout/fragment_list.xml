@@ -29,5 +29,11 @@
             android:text="@string/noContent"
             android:visibility="@{model.isEmpty ? android.view.View.VISIBLE : android.view.View.GONE}"
             />
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{model.isEmpty == null ? android.view.View.VISIBLE : android.view.View.GONE}"
+            />
     </FrameLayout>
 </layout>
